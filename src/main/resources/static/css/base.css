@@ -1,0 +1,80 @@
+* {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0
+}
+
+.qrscan_total_place {
+    border: 1px solid;
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    height: 600px;
+}
+
+li {
+    list-style-type: none
+}
+
+.qrscan_total_place .tab_list_area {
+    overflow: hidden
+}
+
+.qrscan_total_place .tab_list_area ul {
+    display: inline-block;
+}
+
+.qrscan_total_place .tab_list_area ul li {
+    float: left;
+    width: 120px;
+    height: 50px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    color: #8a8d91;
+}
+
+.qrscan_total_place .tab_list_area ul li:hover {
+    color: #1150bf !important;
+    border-bottom: 2px solid #1150bf !important
+}
+
+.qrscan_total_place .qrcode_area {
+    margin-top: 20px;
+}
+
+.qrscan_total_place .qrcode_area #qrtip {
+    color: #8a8d91;
+}
+
+.qrcode_area .qrcode .qrmask {
+    position: absolute;
+    width: 256px;
+    height: 256px;
+    top: 0;
+    left: 50%;
+    margin-left: -128px;
+    margin-top: 75px;
+    background-color: #333;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.qrcode_area .qrcode .qrmask .qrmask_msg {
+    z-index: 10;
+    color: white;
+    left: 0;
+    top: 40%;
+    position: absolute;
+    width: 100%;
+}
+
+.qrcode_area .qrcode .qrmask .qrmask_btn {
+    z-index: 15;
+    left: 90px;
+    top: 55%;
+    position: absolute;
+    width: 75px;
+    font-weight: 600;
+}

@@ -1,0 +1,19 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /qrcode-scan-login
+
+# thymeleaf模板配置
+spring:
+  thymeleaf:
+    prefix: classpath:/static/templates/
+    suffix: .html
+    mode: html5
+    encoding: utf-8
+    cache: false # 热部署文件，页面不产生缓存，及时更新
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
