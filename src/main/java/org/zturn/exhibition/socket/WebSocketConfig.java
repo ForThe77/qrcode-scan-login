@@ -1,4 +1,4 @@
-package org.zturn.exhibition.config;
+package org.zturn.exhibition.socket;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

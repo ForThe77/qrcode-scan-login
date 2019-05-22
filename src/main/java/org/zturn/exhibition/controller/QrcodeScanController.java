@@ -11,13 +11,10 @@ import org.zturn.exhibition.cache.PoolCache;
 import org.zturn.exhibition.config.Constants;
 import org.zturn.exhibition.model.dto.ResultDto;
 import org.zturn.exhibition.model.vo.QRCodeInfo;
-import org.zturn.exhibition.service.QrcodeWebsocket;
+import org.zturn.exhibition.socket.QrcodeWebsocket;
 
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.UUID;
 
 
@@ -110,7 +107,7 @@ public class QrcodeScanController {
     }
 
     /**
-     * 长轮询检查
+     * 长轮询检查（通过wait+notifyAll来实现服务端等待）
      * @param uuid
      * @return
      */
@@ -131,7 +128,9 @@ public class QrcodeScanController {
             LOGGER.info(MessageFormat.format("该二维码（{0}）已失效！", uuid));
         } else {
             QRCodeInfo qrCodeInfo = PoolCache.get(uuid);
-            if (Constants.QRCodeStatus.NOT_SCAN.equals(qrCodeInfo.getStatus())) {
+            qrCodeInfo.hold();
+            resultDto.setFlagAndData(true, qrCodeInfo);
+            /*if (Constants.QRCodeStatus.NOT_SCAN.equals(qrCodeInfo.getStatus())) {
                 // 如果二维码状态处于未扫面状态，则睡一会
                 try {
                     Thread.sleep(Constants.PoolCacheConfig.LONGPOOL_DELAY_TIME);
@@ -139,7 +138,7 @@ public class QrcodeScanController {
                     e.printStackTrace();
                 }
                 resultDto.setFlagAndData(true, qrCodeInfo);
-            }
+            }*/
         }
         return resultDto;
     }
@@ -172,6 +171,9 @@ public class QrcodeScanController {
                     qrCodeInfo.setStatus(Constants.QRCodeStatus.SCANNED); // 更新二维码状态
                     qrCodeInfo.setSession(getSessionByUuid(uuid));
                     resultDto.setAll(true, qrCodeInfo, "Scan QR code successfully!");
+                }
+                if ("2".equals(tabId)) { // 若为长轮询方式，则唤醒qrCodeInfo对应锁住的线程
+                    qrCodeInfo.notifyQRCodeInfo();
                 }
             }
             if ("3".equals(tabId)) { // 若为websocket方式，则发送信息给客户端
@@ -218,6 +220,11 @@ public class QrcodeScanController {
             return new ResultDto(false, "Push message error: " + uuid + "#" + message);
         }
         return new ResultDto(true, "Push message successfully: "+ uuid);
+    }
+
+
+    public void testSynchronized() {
+
     }
 
 }

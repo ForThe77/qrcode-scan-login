@@ -31,7 +31,7 @@ public class Constants {
         // 缓存池的延迟清理时间
         Long CLEAN_DELAY_TIME = 10 * 1000L;
         // 长轮询后台执行睡眠时间
-        Long LONGPOOL_DELAY_TIME = 30 * 1000L;
+        Long LONGPOOL_DELAY_TIME = 3 * 1000L;
     }
 
 

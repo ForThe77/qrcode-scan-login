@@ -3,7 +3,7 @@
 
 $(function () {
     // 页面加载，选择默认点击tab
-    $('.qrscan_total_place .tab_list_area .default').click();
+    $('.qrscan_total_place .tab_list_area .selected').click();
 });
 
 /**
@@ -15,6 +15,8 @@ var tabId;
  * tab点击事件绑定
  */
 $('.qrscan_total_place .tab_list_area ul li').on('click', function () {
+    $(this).parents(".qrscan_total_place .tab_list_area").find("ul li").removeClass("selected");
+    $(this).addClass("selected");
     tabId = $(this).attr('data-id');
     start();
 });
@@ -138,7 +140,7 @@ function checkByPool() {
  * 长轮询
  */
 function checkByLongPool() {
-    var poolCheck = $.get(ctxPath + '/checkByLongPool', {uuid: $('#uuid').val()}, function (res) {
+    $.get(ctxPath + '/checkByLongPool', {uuid: $('#uuid').val()}, function (res) {
         var isContinuePolling = true;
         if (!res || !res.flag) {
             console.log(res.msg || 'The result of poolCheck() is error!');
@@ -167,8 +169,8 @@ function checkByLongPool() {
                     break;
             }
         }
-        if (isContinuePolling) {
-            poolCheck();
+        if (isContinuePolling && '2' === tabId) {
+            checkByLongPool();
         }
     });
 }

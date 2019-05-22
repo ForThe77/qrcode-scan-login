@@ -7,9 +7,9 @@
 4. 使用手机扫描二维码后，若二维码未失效，成功扫码后，页面会跳转新页面。
 
 **基本框架**：
-* jdk 1.8
-* SpringBoot 2.1.2.RELEASE
-* front end: thymeleaf
+* JDK 1.8
+* Spring Boot 2.1.2.RELEASE
+* Thymeleaf
 
 ## 1. 轮询
 

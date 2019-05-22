@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.zturn.exhibition.config.Constants;
 import org.zturn.exhibition.model.dto.ResultDto;
 import org.zturn.exhibition.model.vo.QRCodeInfo;
-import org.zturn.exhibition.service.QrcodeWebsocket;
+import org.zturn.exhibition.socket.QrcodeWebsocket;
 
 import javax.annotation.PostConstruct;
 import java.util.Map;

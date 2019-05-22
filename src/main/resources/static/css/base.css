@@ -35,7 +35,7 @@ li {
     color: #8a8d91;
 }
 
-.qrscan_total_place .tab_list_area ul li:hover {
+.qrscan_total_place .tab_list_area .selected, .qrscan_total_place .tab_list_area ul li:hover {
     color: #1150bf !important;
     border-bottom: 2px solid #1150bf !important
 }
