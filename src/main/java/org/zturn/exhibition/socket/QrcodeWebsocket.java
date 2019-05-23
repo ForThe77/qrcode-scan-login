@@ -14,10 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- * @Title: 二维码 Websocket配置
- * @Description:
- * @author: Roy
- * @date: 2019/5/17 17:20
+ * 二维码 Websocket配置
  */
 @ServerEndpoint("/qrcodeWebsocket/{uuid}") // 将目前的类定义成一个websocket服务器端
 @Component

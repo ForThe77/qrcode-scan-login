@@ -17,3 +17,6 @@ spring:
         content:
           enabled: true
           paths: /**
+#    static-locations: classpath:/static/
+#  mvc:
+#    static-path-pattern: /static/**

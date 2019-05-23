@@ -128,7 +128,7 @@ public class QrcodeScanController {
             LOGGER.info(MessageFormat.format("该二维码（{0}）已失效！", uuid));
         } else {
             QRCodeInfo qrCodeInfo = PoolCache.get(uuid);
-            qrCodeInfo.hold();
+            qrCodeInfo.hold(); // hold操作
             resultDto.setFlagAndData(true, qrCodeInfo);
             /*if (Constants.QRCodeStatus.NOT_SCAN.equals(qrCodeInfo.getStatus())) {
                 // 如果二维码状态处于未扫面状态，则睡一会

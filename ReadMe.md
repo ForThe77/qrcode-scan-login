@@ -16,3 +16,5 @@
 ## 2. 长轮询
 
 ## 3. Websocket
+
+具体实现原理，可参看：https://forthe77.github.io/2019/05/23/qrcode-scan-login

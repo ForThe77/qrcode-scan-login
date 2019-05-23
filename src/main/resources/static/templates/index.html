@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Insert title here</title>
+    <title>实现扫码登录的三种方式</title>
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
     <script type="text/javascript" th:src="@{/js/plugins/jquery-2.1.3.min.js}"></script>
-    <script type="text/javascript" th:src="@{/js/plugins/jquery.qrcode.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery.qrcode.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/utf.js}"></script>
     <script type="text/javascript">
         var ctxPath = "[[${#httpServletRequest.getContextPath()}]]",
             ctx = "[[${#httpServletRequest.getScheme()}]]:\/\/[[${#httpServletRequest.getServerName()}]]:[[${#request.getServerPort()}]][[${#request.getContextPath()}]]";

@@ -27,9 +27,9 @@ public class Constants {
         // 二维码uuid在缓存池的超时时间
         Long QRCODE_TIMEOUT = 30 * 1000L;
         // 缓存池的清理时间间隔
-        Long CLEAN_INTERVAL_TIME = 25 * 1000L;
+        Long CLEAN_INTERVAL_TIME = 20 * 1000L;
         // 缓存池的延迟清理时间
-        Long CLEAN_DELAY_TIME = 10 * 1000L;
+        Long CLEAN_DELAY_TIME = 20 * 1000L;
         // 长轮询后台执行睡眠时间
         Long LONGPOOL_DELAY_TIME = 3 * 1000L;
     }

@@ -82,9 +82,10 @@ function generateQRCode() {
         correctLevel: 0, // 纠错等级
         text: url,
         background: '#ffffff',
-        foreground: '#000000'
+        foreground: '#000000',
+        src: 'img/alpaca.jpg'
     });
-    updateTip('Please scan QR code...');
+    updateTip('Please scan the QR code...');
 }
 
 /**
@@ -121,9 +122,9 @@ function checkByPool() {
                     updateTip('The QR code is invalid, please retry it!')
                     break;
                 case '1':
-                    console.log('Scan QR code successfully!');
+                    console.log('Scan the QR code successfully!');
                     clearInterval(intervalOfCheckByPool);
-                    updateTip('Scan QR code successfully!');
+                    updateTip('Scan the QR code successfully!');
                     window.location.href = ctxPath + '/scanSuccess';
                     break;
                 case '0':
@@ -156,10 +157,10 @@ function checkByLongPool() {
                     updateTip('The QR code is invalid, please retry it!');
                     break;
                 case '1':
-                    console.log('Scan QR code successfully!');
+                    console.log('Scan the QR code successfully!');
                     isContinuePolling = false;
                     clearInterval(intervalOfCheckByPool);
-                    updateTip('Scan QR code successfully!');
+                    updateTip('Scan the QR code successfully!');
                     window.location.href = ctxPath + '/scanSuccess';
                     break;
                 case '0':
@@ -170,6 +171,7 @@ function checkByLongPool() {
             }
         }
         if (isContinuePolling && '2' === tabId) {
+            // 再次发送查询请求
             checkByLongPool();
         }
     });
