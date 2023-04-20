@@ -11,6 +11,10 @@
 * Spring Boot 2.1.2.RELEASE
 * Thymeleaf
 
+**Try it with Docker Container**:
+1. sudo docker build . --no-cache -t qrcode-scan-login:1.0
+2. sudo docker run -it --rm -p9999:9999 qrcode-scan-login:1.0 
+
 ## 1. 轮询
 
 ## 2. 长轮询
